@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <!--Import materialize.css-->
+    <link  rel="stylesheet" th:href="@{/css/materialize.css}"  media="screen,projection"/>
+
+    <!--<link rel="stylesheet" href="../static/css/main.css"  th:href="@{/css/main.css}"/> -->
+    <title>US States | Home</title>
+</head>
+<body>
+
+    <h1> US States</h1>
+    <p> 50 states with so much to see and experience. It's my mission to mix myself with each state and appreciate the beauty each offers.
+    Starting with my adopted home Florida I'll travel to the most interesting and beautiful landscapes.
+    </p>
+
+    <div class="states container">
+        <div class="row">
+            <div th:each="state : ${states}" class="col s12 l4">
+                <h4 th:text="${state.name}"></h4>
+                <a th:href="@{|/state/${state.name}|}">
+                    <img class="responsive-img" th:src="@{|/flags/${state.name}.png|}" />
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" th:src="@{../vendor/js/materialize.min.js}"></script>
+
+</body>
+</html>
